@@ -1,6 +1,5 @@
 package drivers;
 
-import controllers.SimpleController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
