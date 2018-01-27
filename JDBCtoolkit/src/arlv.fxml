@@ -17,7 +17,7 @@
                   <Button mnemonicParsing="false" text="DEL" />
                </children>
             </VBox>
-            <ListView prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="lv2" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </HBox>
    </children>

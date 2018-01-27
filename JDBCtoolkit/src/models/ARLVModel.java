@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entities.Designation;
-import entities.SimpleRecord;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import jpa.ARLVJPA;
-import jpa.SimpleJPA;
 
 public class ARLVModel {
 	
@@ -34,6 +32,33 @@ public class ARLVModel {
 	
 	public ObservableList<Designation> getlv1Prop(){
 		return lv1Prop.getValue();
+	}
+	
+	//
+	ObjectProperty<ObservableList<Designation>> lv2Prop = new SimpleObjectProperty<ObservableList<Designation>>();
+	public ObjectProperty<ObservableList<Designation>> lv2Property() {
+		lv2Prop.setValue(FXCollections.observableList(getRecordList()));
+		return lv2Prop;
+	}
+	
+	public void setlv2Prop(ObservableList<Designation> newlv2Prop){
+		lv2Prop.setValue(newlv2Prop);	
+	}
+	
+	public ObservableList<Designation> getlv2Prop(){
+		return lv2Prop.getValue();
+	}
+	//
+	
+	ObjectProperty<Designation> desProp = new SimpleObjectProperty<Designation>();
+	public ObjectProperty<Designation> desProperty(){
+		return desProp;
+	}
+	public void setDesProp(Designation newDes){
+		desProp.setValue(newDes);
+	}
+	public Designation getDesProp(){
+		return desProp.getValue();
 	}
 	
 		

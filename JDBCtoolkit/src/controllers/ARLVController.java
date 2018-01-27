@@ -13,6 +13,7 @@ public class ARLVController {
 	public static ARLVModel model = new ARLVModel();
 	
 	@FXML private ListView<Designation> lv1;
+	@FXML private ListView<Designation> lv2;
 	
 	@FXML void initialize(){
 		if(lv1 != null) {
@@ -22,10 +23,22 @@ public class ARLVController {
 				@Override
 				public void changed(ObservableValue<? extends Designation> arg0,
 						Designation arg1, Designation arg2) {
-						//model.setProp(arg2);
+						model.setDesProp(arg2);
+						System.out.println(model.getDesProp());
 				}	
 	        });
 	        lv1.itemsProperty().bindBidirectional(model.lv1Property());
+	        
+	        lv2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Designation>(){
+
+				@Override
+				public void changed(ObservableValue<? extends Designation> arg0,
+						Designation arg1, Designation arg2) {
+						model.setDesProp(arg2);
+						System.out.println(model.getDesProp());
+				}	
+	        });
+	        lv2.itemsProperty().bindBidirectional(model.lv2Property());
 	        
 		}
 		
