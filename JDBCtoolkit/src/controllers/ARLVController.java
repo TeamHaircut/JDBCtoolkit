@@ -1,7 +1,7 @@
+//model.getlv2Prop() contains search criteria
 package controllers;
 
-
-import entities.Designation;
+import entities.Entity;
 import models.ARLVModel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -13,13 +13,13 @@ public class ARLVController {
 
 	public static ARLVModel model = new ARLVModel();
 	
-	@FXML private ListView<Designation> lv1;
-	@FXML private ListView<Designation> lv2;
+	@FXML private ListView<Entity> lvEntity1;
+	@FXML private ListView<Entity> lvEntity2;
 	
-	@FXML private Button addAllBTN;
-	@FXML private Button removeAllBTN;
-	@FXML private Button addBTN;
-	@FXML private Button removeBTN;
+	@FXML private Button addAllEntityBTN;
+	@FXML private Button removeAllEntityBTN;
+	@FXML private Button addEntityBTN;
+	@FXML private Button removeEntityBTN;
 	
 	@FXML
 	private void addAction() {
@@ -42,31 +42,31 @@ public class ARLVController {
 	}
 	
 	@FXML void initialize(){
-		if(lv1 != null) {
+		if(lvEntity1 != null) {
 			
 			// ** xAllBTN functionality is currently disabled
-			removeAllBTN.setDisable(true);
-			addAllBTN.setDisable(true);
+			removeAllEntityBTN.setDisable(true);
+			addAllEntityBTN.setDisable(true);
 			
-			lv1.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Designation>(){
+			lvEntity1.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Entity>(){
 
 				@Override
-				public void changed(ObservableValue<? extends Designation> arg0,
-						Designation arg1, Designation arg2) {
-						model.setDesProp(arg2);
+				public void changed(ObservableValue<? extends Entity> arg0,
+						Entity arg1, Entity arg2) {
+						model.setEntityProp(arg2);
 				}	
 	        });
-	        lv1.itemsProperty().bindBidirectional(model.lv1Property());
+	        lvEntity1.itemsProperty().bindBidirectional(model.lvEntity1Property());
 	        
-	        lv2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Designation>(){
+	        lvEntity2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Entity>(){
 
 				@Override
-				public void changed(ObservableValue<? extends Designation> arg0,
-						Designation arg1, Designation arg2) {
-						model.setDesProp2(arg2);
+				public void changed(ObservableValue<? extends Entity> arg0,
+						Entity arg1, Entity arg2) {
+						model.setEntityProp2(arg2);
 				}	
 	        });
-	        lv2.itemsProperty().bindBidirectional(model.lv2Property());
+	        lvEntity2.itemsProperty().bindBidirectional(model.lvEntity2Property());
 	        
 		}
 		

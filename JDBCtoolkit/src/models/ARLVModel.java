@@ -3,7 +3,7 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
-import entities.Designation;
+import entities.Entity;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -19,79 +19,79 @@ public class ARLVModel {
 	}
 	
 	public void add() {
-		if(getDesProp()!=null) {
-			Designation d = getDesProp();
-			lv1Prop.get().remove(d);
-			lv2Prop.get().add(d);
+		if(getEntityProp()!=null) {
+			Entity e = getEntityProp();
+			lvEntity1Prop.get().remove(e);
+			lvEntity2Prop.get().add(e);
 		}
 	}
 	
 	public void remove() {
-		if(getDesProp2()!=null) {
-			Designation d = getDesProp2();
-			lv2Prop.get().remove(d);
-			lv1Prop.get().add(d);
+		if(getEntityProp2()!=null) {
+			Entity e = getEntityProp2();
+			lvEntity2Prop.get().remove(e);
+			lvEntity1Prop.get().add(e);
 		}
 	}
 	
 	public static ARLVJPA myJPA = new ARLVJPA();
-	public List<Designation> myRecordList = new ArrayList<Designation>();
-	public List<Designation> getDBRecordList(){
+	public List<Entity> myRecordList = new ArrayList<Entity>();
+	public List<Entity> getDBRecordList(){
 			if(myJPA != null)
 			myRecordList = myJPA.getDbRecords();
 		return myRecordList;
 	}
 	
-	ObjectProperty<ObservableList<Designation>> lv1Prop = new SimpleObjectProperty<ObservableList<Designation>>();
-	public ObjectProperty<ObservableList<Designation>> lv1Property() {
-		lv1Prop.setValue(FXCollections.observableList(getDBRecordList()));
-		return lv1Prop;
+	ObjectProperty<ObservableList<Entity>> lvEntity1Prop = new SimpleObjectProperty<ObservableList<Entity>>();
+	public ObjectProperty<ObservableList<Entity>> lvEntity1Property() {
+		lvEntity1Prop.setValue(FXCollections.observableList(getDBRecordList()));
+		return lvEntity1Prop;
 	}
 	
-	public void setlv1Prop(ObservableList<Designation> newlv1Prop){
-		lv1Prop.setValue(newlv1Prop);	
+	public void setlvEntity1Prop(ObservableList<Entity> newlv1Prop){
+		lvEntity1Prop.setValue(newlv1Prop);	
 	}
 	
-	public ObservableList<Designation> getlv1Prop(){
-		return lv1Prop.getValue();
+	public ObservableList<Entity> getlvEntity1Prop(){
+		return lvEntity1Prop.getValue();
 	}
 	
 	//
-	ObjectProperty<ObservableList<Designation>> lv2Prop = new SimpleObjectProperty<ObservableList<Designation>>();
-	public ObjectProperty<ObservableList<Designation>> lv2Property() {
-		lv2Prop.setValue(FXCollections.observableList(new ArrayList<Designation>()));
-		return lv2Prop;
+	ObjectProperty<ObservableList<Entity>> lvEntity2Prop = new SimpleObjectProperty<ObservableList<Entity>>();
+	public ObjectProperty<ObservableList<Entity>> lvEntity2Property() {
+		lvEntity2Prop.setValue(FXCollections.observableList(new ArrayList<Entity>()));
+		return lvEntity2Prop;
 	}
 	
-	public void setlv2Prop(ObservableList<Designation> newlv2Prop){
-		lv2Prop.setValue(newlv2Prop);	
+	public void setlvEntity2Prop(ObservableList<Entity> newlv2Prop){
+		lvEntity2Prop.setValue(newlv2Prop);	
 	}
 	
-	public ObservableList<Designation> getlv2Prop(){
-		return lv2Prop.getValue();
+	public ObservableList<Entity> getlvEntity2Prop(){
+		return lvEntity2Prop.getValue();
 	}
 	//
 	
-	ObjectProperty<Designation> desProp = new SimpleObjectProperty<Designation>();
-	public ObjectProperty<Designation> desProperty(){
-		return desProp;
+	ObjectProperty<Entity> EntityProp = new SimpleObjectProperty<Entity>();
+	public ObjectProperty<Entity> EntityProperty(){
+		return EntityProp;
 	}
-	public void setDesProp(Designation newDes){
-		desProp.setValue(newDes);
+	public void setEntityProp(Entity newDes){
+		EntityProp.setValue(newDes);
 	}
-	public Designation getDesProp(){
-		return desProp.getValue();
+	public Entity getEntityProp(){
+		return EntityProp.getValue();
 	}
 	
-	ObjectProperty<Designation> desProp2 = new SimpleObjectProperty<Designation>();
-	public ObjectProperty<Designation> desProperty2(){
-		return desProp2;
+	ObjectProperty<Entity> EntityProp2 = new SimpleObjectProperty<Entity>();
+	public ObjectProperty<Entity> EntityProperty2(){
+		return EntityProp2;
 	}
-	public void setDesProp2(Designation newDes){
-		desProp2.setValue(newDes);
+	public void setEntityProp2(Entity newDes){
+		EntityProp2.setValue(newDes);
 	}
-	public Designation getDesProp2(){
-		return desProp2.getValue();
+	public Entity getEntityProp2(){
+		return EntityProp2.getValue();
 	}
 	
 }

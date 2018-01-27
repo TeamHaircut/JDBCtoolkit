@@ -10,7 +10,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import entities.Designation;
+import entities.Entity;
 
 public class ARLVJPA {
 	
@@ -27,14 +27,14 @@ public class ARLVJPA {
 
 	}
 	
-	public List<Designation> getDbRecords(){
-		List<Designation> recordList = new ArrayList<Designation>();
+	public List<Entity> getDbRecords(){
+		List<Entity> recordList = new ArrayList<Entity>();
 		if(em.isOpen())
 		{
 			Query q;
-			q = em.createQuery("select x from Designation x");
+			q = em.createQuery("select x from Entity x");
 			@SuppressWarnings("unchecked")
-			List<Designation>myRecordList = q.getResultList();
+			List<Entity>myRecordList = q.getResultList();
 			recordList.addAll(myRecordList);
 		}
 		return recordList;
