@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entities.Designation;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,11 +14,18 @@ import jpa.ARLVJPA;
 
 public class ARLVModel {
 	
+	public void addAll() {
+		lv1Prop.get().removeAll(FXCollections.observableList(getRecordList()));
+		lv2Prop.get().addAll(FXCollections.observableList(getRecordList()));
+	}
+	
 	public static ARLVJPA myJPA = new ARLVJPA();
 	public List<Designation> myRecordList = new ArrayList<Designation>();
 	public List<Designation> getRecordList(){
-		if(myJPA != null)
-		myRecordList = myJPA.getDbRecords();
+		if(myRecordList.isEmpty()) {
+			if(myJPA != null)
+			myRecordList = myJPA.getDbRecords();
+		}
 		return myRecordList;
 	}
 	
@@ -65,6 +74,18 @@ public class ARLVModel {
 	public Designation getDesProp(){
 		return desProp.getValue();
 	}
+	
+	IntegerProperty indexProp = new SimpleIntegerProperty();
+	public IntegerProperty indexProperty(){
+		return indexProp;
+	}
+	public void setIndexProp(Integer newIndex){
+		indexProp.setValue(newIndex);
+	}
+	public Integer getIndexProp(){
+		return indexProp.getValue();
+	}
+
 	
 		
 }

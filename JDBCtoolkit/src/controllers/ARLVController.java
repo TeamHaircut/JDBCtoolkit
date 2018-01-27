@@ -16,11 +16,11 @@ public class ARLVController {
 	@FXML private ListView<Designation> lv1;
 	@FXML private ListView<Designation> lv2;
 	
-	@FXML private Button addBTN;
+	@FXML private Button addAllBTN;
 	
 	@FXML
-	private void addAction() {
-		System.out.println("button pressed");
+	private void addAllAction() {
+			model.addAll();
 	}
 	
 	@FXML void initialize(){
@@ -32,7 +32,7 @@ public class ARLVController {
 				public void changed(ObservableValue<? extends Designation> arg0,
 						Designation arg1, Designation arg2) {
 						model.setDesProp(arg2);
-						System.out.println(model.getDesProp());
+						model.setIndexProp(lv1.getSelectionModel().selectedIndexProperty().getValue());
 				}	
 	        });
 	        lv1.itemsProperty().bindBidirectional(model.lv1Property());
