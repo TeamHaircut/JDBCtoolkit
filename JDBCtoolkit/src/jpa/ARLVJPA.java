@@ -10,16 +10,16 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import entities.SimpleRecord;
+import entities.Designation;
 
-public class ARLVJpa {
+public class ARLVJPA {
 	
 	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("simpledb");
 	private EntityManager em;
 	private String connectionString;
 	
 	
-	public ARLVJpa() {
+	public ARLVJPA() {
 		//Your ConnectionString
 		connectionString = "jdbc:derby:c:/users/public/documents/databases/derby/simpledb/simpledb;";
 		em = getEntityManager(""+getConnectionString()+";");
@@ -27,14 +27,14 @@ public class ARLVJpa {
 
 	}
 	
-	public List<SimpleRecord> getDbRecords(){
-		List<SimpleRecord> recordList = new ArrayList<SimpleRecord>();
+	public List<Designation> getDbRecords(){
+		List<Designation> recordList = new ArrayList<Designation>();
 		if(em.isOpen())
 		{
 			Query q;
-			q = em.createQuery("select x from SimpleRecord x");
+			q = em.createQuery("select x from Designation x");
 			@SuppressWarnings("unchecked")
-			List<SimpleRecord>myRecordList = q.getResultList();
+			List<Designation>myRecordList = q.getResultList();
 			recordList.addAll(myRecordList);
 		}
 		return recordList;
