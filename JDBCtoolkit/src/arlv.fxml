@@ -13,7 +13,7 @@
                <children>
                   <Button mnemonicParsing="false" text="ADD ALL" />
                   <Button mnemonicParsing="false" text="DEL ALL" />
-                  <Button mnemonicParsing="false" text="ADD" />
+                  <Button fx:id="addBTN" mnemonicParsing="false" onAction="#addAction" text="ADD" />
                   <Button mnemonicParsing="false" text="DEL" />
                </children>
             </VBox>

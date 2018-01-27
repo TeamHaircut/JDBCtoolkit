@@ -7,6 +7,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Button;
 
 public class ARLVController {
 
@@ -14,6 +15,13 @@ public class ARLVController {
 	
 	@FXML private ListView<Designation> lv1;
 	@FXML private ListView<Designation> lv2;
+	
+	@FXML private Button addBTN;
+	
+	@FXML
+	private void addAction() {
+		System.out.println("button pressed");
+	}
 	
 	@FXML void initialize(){
 		if(lv1 != null) {
