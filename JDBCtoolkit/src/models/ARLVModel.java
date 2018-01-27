@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import entities.Designation;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,35 +13,38 @@ import jpa.ARLVJPA;
 public class ARLVModel {
 	
 	public void addAll() {
-		lv1Prop.get().removeAll(FXCollections.observableList(getRecordList()));
-		lv2Prop.get().addAll(FXCollections.observableList(getRecordList()));
 	}
 	
 	public void removeAll() {
-		lv2Prop.get().removeAll(FXCollections.observableList(getRecordList()));
-		lv1Prop.get().addAll(FXCollections.observableList(getRecordList()));
 	}
 	
 	public void add() {
-		Designation d = getDesProp();
-		lv1Prop.get().remove(d);
-		lv2Prop.get().add(d);
+		if(getDesProp()!=null) {
+			Designation d = getDesProp();
+			lv1Prop.get().remove(d);
+			lv2Prop.get().add(d);
+		}
+	}
+	
+	public void remove() {
+		if(getDesProp2()!=null) {
+			Designation d = getDesProp2();
+			lv2Prop.get().remove(d);
+			lv1Prop.get().add(d);
+		}
 	}
 	
 	public static ARLVJPA myJPA = new ARLVJPA();
 	public List<Designation> myRecordList = new ArrayList<Designation>();
-	public List<Designation> getRecordList(){
-		if(myRecordList.isEmpty()) {
+	public List<Designation> getDBRecordList(){
 			if(myJPA != null)
 			myRecordList = myJPA.getDbRecords();
-		}
 		return myRecordList;
 	}
 	
-	
 	ObjectProperty<ObservableList<Designation>> lv1Prop = new SimpleObjectProperty<ObservableList<Designation>>();
 	public ObjectProperty<ObservableList<Designation>> lv1Property() {
-		lv1Prop.setValue(FXCollections.observableList(getRecordList()));
+		lv1Prop.setValue(FXCollections.observableList(getDBRecordList()));
 		return lv1Prop;
 	}
 	
@@ -82,17 +83,15 @@ public class ARLVModel {
 		return desProp.getValue();
 	}
 	
-	IntegerProperty indexProp = new SimpleIntegerProperty();
-	public IntegerProperty indexProperty(){
-		return indexProp;
+	ObjectProperty<Designation> desProp2 = new SimpleObjectProperty<Designation>();
+	public ObjectProperty<Designation> desProperty2(){
+		return desProp2;
 	}
-	public void setIndexProp(Integer newIndex){
-		indexProp.setValue(newIndex);
+	public void setDesProp2(Designation newDes){
+		desProp2.setValue(newDes);
 	}
-	public Integer getIndexProp(){
-		return indexProp.getValue();
+	public Designation getDesProp2(){
+		return desProp2.getValue();
 	}
-
 	
-		
 }

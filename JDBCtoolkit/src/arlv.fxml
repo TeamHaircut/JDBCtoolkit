@@ -14,7 +14,7 @@
                   <Button fx:id="addAllBTN" mnemonicParsing="false" onAction="#addAllAction" text="ADD ALL" />
                   <Button fx:id="removeAllBTN" mnemonicParsing="false" onAction="#removeAllAction" text="DEL ALL" />
                   <Button fx:id="addBTN" mnemonicParsing="false" onAction="#addAction" text="ADD" />
-                  <Button mnemonicParsing="false" text="DEL" />
+                  <Button fx:id="removeBTN" mnemonicParsing="false" onAction="#removeAction" text="DEL" />
                </children>
             </VBox>
             <ListView fx:id="lv2" prefHeight="200.0" prefWidth="200.0" />

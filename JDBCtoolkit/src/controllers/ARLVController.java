@@ -19,10 +19,16 @@ public class ARLVController {
 	@FXML private Button addAllBTN;
 	@FXML private Button removeAllBTN;
 	@FXML private Button addBTN;
+	@FXML private Button removeBTN;
 	
 	@FXML
 	private void addAction() {
 		model.add();
+	}
+	
+	@FXML 
+	private void removeAction() {
+		model.remove();
 	}
 	
 	@FXML
@@ -38,13 +44,16 @@ public class ARLVController {
 	@FXML void initialize(){
 		if(lv1 != null) {
 			
+			// ** xAllBTN functionality is currently disabled
+			removeAllBTN.setDisable(true);
+			addAllBTN.setDisable(true);
+			
 			lv1.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Designation>(){
 
 				@Override
 				public void changed(ObservableValue<? extends Designation> arg0,
 						Designation arg1, Designation arg2) {
 						model.setDesProp(arg2);
-						model.setIndexProp(lv1.getSelectionModel().selectedIndexProperty().getValue());
 				}	
 	        });
 	        lv1.itemsProperty().bindBidirectional(model.lv1Property());
@@ -54,8 +63,7 @@ public class ARLVController {
 				@Override
 				public void changed(ObservableValue<? extends Designation> arg0,
 						Designation arg1, Designation arg2) {
-						model.setDesProp(arg2);
-						System.out.println(model.getDesProp());
+						model.setDesProp2(arg2);
 				}	
 	        });
 	        lv2.itemsProperty().bindBidirectional(model.lv2Property());
