@@ -17,10 +17,22 @@ public class ARLVController {
 	@FXML private ListView<Designation> lv2;
 	
 	@FXML private Button addAllBTN;
+	@FXML private Button removeAllBTN;
+	@FXML private Button addBTN;
+	
+	@FXML
+	private void addAction() {
+		model.add();
+	}
 	
 	@FXML
 	private void addAllAction() {
-			model.addAll();
+		model.addAll();
+	}
+	
+	@FXML
+	private void removeAllAction() {
+		model.removeAll();
 	}
 	
 	@FXML void initialize(){

@@ -19,6 +19,17 @@ public class ARLVModel {
 		lv2Prop.get().addAll(FXCollections.observableList(getRecordList()));
 	}
 	
+	public void removeAll() {
+		lv2Prop.get().removeAll(FXCollections.observableList(getRecordList()));
+		lv1Prop.get().addAll(FXCollections.observableList(getRecordList()));
+	}
+	
+	public void add() {
+		Designation d = getDesProp();
+		lv1Prop.get().remove(d);
+		lv2Prop.get().add(d);
+	}
+	
 	public static ARLVJPA myJPA = new ARLVJPA();
 	public List<Designation> myRecordList = new ArrayList<Designation>();
 	public List<Designation> getRecordList(){
@@ -29,10 +40,6 @@ public class ARLVModel {
 		return myRecordList;
 	}
 	
-	public List<Designation> myRecordList2 = new ArrayList<Designation>();
-	public List<Designation> getRecordList2(){
-		return myRecordList2;
-	}
 	
 	ObjectProperty<ObservableList<Designation>> lv1Prop = new SimpleObjectProperty<ObservableList<Designation>>();
 	public ObjectProperty<ObservableList<Designation>> lv1Property() {
@@ -51,7 +58,7 @@ public class ARLVModel {
 	//
 	ObjectProperty<ObservableList<Designation>> lv2Prop = new SimpleObjectProperty<ObservableList<Designation>>();
 	public ObjectProperty<ObservableList<Designation>> lv2Property() {
-		lv2Prop.setValue(FXCollections.observableList(getRecordList2()));
+		lv2Prop.setValue(FXCollections.observableList(new ArrayList<Designation>()));
 		return lv2Prop;
 	}
 	
