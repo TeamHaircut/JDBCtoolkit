@@ -1,4 +1,6 @@
-#JDBC Toolkit Repository
+<h1>JDBC Toolkit Repository</h1>
+<b>A JavaFX, openJPA, JDBCtoolkit with MVC architecture</b>
+This repository contains basic elements to build Java Database Connectivity applications with Model-View-Controller software architecture.  Connections are currently made to Derby Databases, and persisted using the openJPA object-relational mapping solution.  Front end is supported by JavaFX GUI application framework.
 
 
 Dependencies:
@@ -14,6 +16,3 @@ ij> insert into simplerecord (fname,lname,email) values ('Becky','Jones','becjon
 ij> insert into simplerecord (fname,lname,email) values ('Beth','Silva','betsil@email.com');
 
 SimpleDriver.java performs a select statement from a derby database displays records to console
-
-
-
