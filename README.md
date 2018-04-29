@@ -1,6 +1,6 @@
 <h1>JDBC Toolkit Repository</h1>
 <h4><b>A JavaFX, openJPA, JDBC toolkit with MVC architecture</b></h4>
-<p>This repository contains basic elements to build Java Database Connectivity applications with Model-View-Controller software architecture.  Connections are currently made to Derby Databases, and persisted using the openJPA object-relational mapping solution.  Front end is supported by JavaFX GUI application framework.</p>
+<p>This repository contains basic elements to build Java Database Connectivity applications with Model-View-Controller software architecture.  Connections are currently made to Derby Databases, and persisted using the openJPA object-relational mapping solution.  Front end is supported by the JavaFX GUI application framework.</p>
 <br>
 <p><b>Dependencies:</b>
 <br>* Java 8
