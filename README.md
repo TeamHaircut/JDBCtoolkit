@@ -14,4 +14,4 @@
 <br>ij> insert into simplerecord (fname,lname,email) values ('Becky','Jones','becjon@email.com');
 <br>ij> insert into simplerecord (fname,lname,email) values ('Beth','Silva','betsil@email.com');</p>
 
-</p>SimpleDriver.java performs a select statement from a derby database displays records to console</p>
+</p>SimpleDriver.java performs a select statement from a derby database and displays records to console</p>
